@@ -5,15 +5,15 @@ My learning note while exploring Linux (Ubuntu XFCE)
 
 1. To execute a file:  ./file
 
-2. To create a Desktop/Launcher shortcut:  Create a .desktop file
+2. To create a Desktop/Launcher shortcut:  Just create a .desktop file.
 
-3. Use TAB for auto-complete in Terminal (won't forget names anymore)
+3. Use TAB for auto-complete in Terminal. (Won't forget names anymore!)
 
-4. Install RAR to unpack a .rar file
+4. Install RAR to unpack a .rar file.
 
-5. System Freeze:  Try Ctrl-Alt-F1 for accessing terminal
+5. System Freeze:  Try `Ctrl-Alt-F1` for accessing the terminal.
 
-6. SysRq: Alt + SysRq + "REISUB"
+6. SysRq: `Alt` + `SysRq` + "REISUB"  ("busier")
 
     | | |
     |--- | --- |
@@ -22,7 +22,7 @@ My learning note while exploring Linux (Ubuntu XFCE)
     | U: umount disk | B: reboot |	
     | F: call oom_kill (kill one) | |
 
-7. htop:  A handy tool for System Monitor
+7. htop:  A handy tool for System Monitor.
 
 8. Rapid System Simulation:  qemu-system-x86_64 [iso file]
 
