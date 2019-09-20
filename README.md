@@ -26,6 +26,23 @@ My learning note while exploring Linux (Ubuntu XFCE)
 
 8. Rapid System Simulation:  qemu-system-x86_64 [iso file]
 
+9. Wanna list RecycleBin according to deletion time? -> Go to ~/.local/share/Trash/files, and then `stat -c "%z - %n" * | sort -t'-'`.
+
+10. Ubuntu 16+ DO NOT run startup scripts from /etc/rcX.d anymore; Use the crontab @reboot method instead. (But do remember that root's crontab cannot read unencrypted user data)
+
+11. Sticky bit: ------t Only owner can remove, even it is mod 777 (eg. /tmp)
+
+12. SetUID: Do not support Scripts; Executables are also not supported under /tmp, /home. (which are mounted as nosuid)
+
+13. Systemctl's `is-enable` command can check for "generated scripts".
+
+14. Calling grep multiple time is faster than parsing with a single While-loop. (big file)
+
+15. MessageOfTheDay (The tty greetings) is under /etc/update-motd.d/.
+
+16. Locate: A utility for reverse-mapping filenames to paths. However, it will scan the whole system everyday (updatedb.mlocate), so remember to turn it off if not needed.
+
+17. Secure boot: Not all modules are signed, hence the error message: XX kernel module not found or loaded.
 
 ## Commands
 
