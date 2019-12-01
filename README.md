@@ -80,7 +80,7 @@ My learning note while exploring Linux (Ubuntu XFCE)
    
    apt-get upgrade (install update)
 
-   add-apt-repository ppa:webupd8team/java  (軟體源)
+   add-apt-repository ppa:webupd8team/java (package source)
 
 10. dpkg: -i  (install)
 
