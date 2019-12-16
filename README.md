@@ -46,71 +46,71 @@ My learning note while exploring Linux (Ubuntu XFCE)
 
 ## Commands
 
-- Grep to filter:  ls | grep "sys"
+- Grep to filter: `ls | grep "sys"`
 
-- Print the contents:  cat [textfile]
+- Print contents: `cat [textfile]`
 
-- Rename:  mv aaa abbb   (renaming by moving)
+- Rename through moving: `mv aaa abbb`
 
-- Create soft link:  ln -s /home/afolder /home/f/Folder
+- Create soft link: `ln -s /home/afolder /home/f/Folder`
 
-- Change permission:
+- Change file permission:
 
-    a. chmod g+x file ...............> [u=owner/ g=group/ o=other], [+-], [r=read/ w=write/ x=execute]
+  * `chmod g+x file` ---> [u=owner/g=group/o=other] [+-] [r=read/w=write/x=execute]
 
-    b. chmod 705 file ...............> (eg. 0=---, 1=--x, ..., 7=rwx)
+  * `chmod 705 file` ---> (eg. 0=---, 1=--x, ..., 7=rwx)
 
-- Change owner:  chown [user]:[group] file
+- Change owner: `chown [user]:[group] file`
 
 - File info:  (ls -l) 	`-rw-rw-r-- 1  [user] [usergroup] [1024] [Sep 26 18:48] [file.name]`
 
    The first '-' indicates file type:  '-'=file, 'd'=dir, 'l'=link
 
-- pwd: Print current directory path.
+- `pwd`: Print current directory path.
 
-- apt: apt-get install ...
+- apt: `apt-get install` ...
 
-  * apt-cache search ...
+  * `apt-cache search` ...
 
-  * apt-cache show [package name]  (detail info)
+  * `apt-cache show [package name]` (detail info)
    
-  * apt autoremove (remove useless packages)
+  * `apt autoremove` (remove useless packages)
    
-  * apt-get update (refresh updatable list)
+  * `apt-get update` (refresh updatable list)
    
-  * apt-get upgrade (install update)
+  * `apt-get upgrade` (install update)
 
-  * add-apt-repository ppa:webupd8team/java (add package source)
+  * `add-apt-repository ppa:webupd8team/java` (add package source)
 
-- dpkg: -i (install)
+- `dpkg`: `-i` (install)
 
-    * -l (list)
+    * `-l` (list)
 
-    * -r (remove)
+    * `-r` (remove)
 
-    * -p (also purge config)
+    * `-p` (also purge config)
 
-- sudo passwd root  (change root account's password)
+- `sudo passwd root` (change root account's password)
 
-- mount -t ntfs /dev/sda1 /mnt/winOS/ -o "umask=022"
+- `mount -t ntfs /dev/sda1 /mnt/winOS/ -o "umask=022"`
 
-  * umount /dev/sda1
+  * `umount /dev/sda1`
 
-- sudo -k: Reset credential, require password to use sudo again.
+- `sudo -k`: Reset credential, require password to use sudo again.
 
-- rsync -av ~/Desktop/ ~/backup/fold1/ (A tool more powerful than cp)
+- `rsync -av ~/Desktop/ ~/backup/fold1/` (A tool more powerful than cp)
 
-  * --exclude={"a/\*","auto\*","a/.gitignore"}
+  * `--exclude={"a/\*","auto\*","a/.gitignore"}`
 
-- systemd-analyze  (time / blame / critical-chain)
+- `systemd-analyze (time / blame / critical-chain)`
 
-  * systemctl  (status / disable / stop)
+  * `systemctl (status / disable / stop)`
 
 - System info:
 
-  * uname -a: Show system info.
+  * `uname -a`: Show system info.
     
-  * inxi: Show lots of system info (-S for distro/DE version)
+  * `inxi`: Show lots of system info (`-S` for distro/DE version)
     
   * ls /usr/bin/\*session  (Find out which DE has been installed)
 
