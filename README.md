@@ -203,11 +203,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - Vim editor:
 
-  * `/` search, `/\%xa9` search hex
+  * `/` (search), `/\%xa9` (search hex)
   
-  * `:d30` delete 30 lines
+  * `:d30` (delete 30 lines)
   
-  * `ga` show current char
+  * `ga` (show current char)
 
 - `awk '{print $2}'`: Print second column, seperated by whitespaces.
 
