@@ -4,6 +4,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - [System Tips](#system-tips)
 - [Commands](#commands)
 
+
 ## System Tips
 
 1. To execute a file: `./file`
@@ -200,7 +201,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `lsof`: find out which process opened a file.
 
-- VIM:
+- Vim editor:
 
   * `/` search, `/\%xa9` search hex
   
