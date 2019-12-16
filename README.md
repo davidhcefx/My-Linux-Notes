@@ -46,96 +46,108 @@ My learning note while exploring Linux (Ubuntu XFCE)
 
 ## Commands
 
-1. Grep to filter:  ls | grep "sys"
+- Grep to filter:  ls | grep "sys"
 
-2. Print the contents:  cat [textfile]
+- Print the contents:  cat [textfile]
 
-3. Rename:  mv aaa abbb   (renaming by moving)
+- Rename:  mv aaa abbb   (renaming by moving)
 
-4. Create soft link:  ln -s /home/afolder /home/f/Folder
+- Create soft link:  ln -s /home/afolder /home/f/Folder
 
-5. Change permission:
+- Change permission:
 
     a. chmod g+x file ...............> [u=owner/ g=group/ o=other], [+-], [r=read/ w=write/ x=execute]
 
     b. chmod 705 file ...............> (eg. 0=---, 1=--x, ..., 7=rwx)
 
-6. Change owner:  chown [user]:[group] file
+- Change owner:  chown [user]:[group] file
 
-7. File info:  (ls -l) 	`-rw-rw-r-- 1  [user] [usergroup] [1024] [Sep 26 18:48] [file.name]`
+- File info:  (ls -l) 	`-rw-rw-r-- 1  [user] [usergroup] [1024] [Sep 26 18:48] [file.name]`
 
    The first '-' indicates file type:  '-'=file, 'd'=dir, 'l'=link
 
-8. Print Working Directory:  pwd (current cd)
+- pwd: Print current directory path.
 
-9. apt:  apt-get install ...
+- apt: apt-get install ...
 
-   apt-cache search ...
+  * apt-cache search ...
 
-   apt-cache show [package name]   (detail info)
+  * apt-cache show [package name]  (detail info)
    
-   apt autoremove  (remove useless packages)
+  * apt autoremove (remove useless packages)
    
-   apt-get update  (refresh update list)
+  * apt-get update (refresh updatable list)
    
-   apt-get upgrade (install update)
+  * apt-get upgrade (install update)
 
-   add-apt-repository ppa:webupd8team/java (package source)
+  * add-apt-repository ppa:webupd8team/java (add package source)
 
-10. dpkg: -i  (install)
+- dpkg: -i (install)
 
-    -l  (list)
+    * -l (list)
 
-    -r  (remove)
+    * -r (remove)
 
-    -p  (remove entry also)
+    * -p (also purge config)
 
-11. sudo passwd root   (change root account's password)
+- sudo passwd root  (change root account's password)
 
-12. mount -t ntfs /dev/sda1 /mnt/winOS/
+- mount -t ntfs /dev/sda1 /mnt/winOS/ -o "umask=022"
 
-    umount /dev/sda1
+  * umount /dev/sda1
 
-13. sudo -k:  Reset credential, need password to use sudo again
+- sudo -k: Reset credential, require password to use sudo again.
 
-14. rsync -av /home/david/Desktop/ /home/david/backup/   (A tool more powerful than cp)(Support incremental)
+- rsync -av ~/Desktop/ ~/backup/fold1/ (A tool more powerful than cp)
 
-15. systemd-analyze  (time / blame / critical-chain)
+  * --exclude={"a/\*","auto\*","a/.gitignore"}
 
-    systemctl  (status / disable / stop)
+- systemd-analyze  (time / blame / critical-chain)
 
-16. uname -a:  Show all system info
+  * systemctl  (status / disable / stop)
 
-17. du -h /home/david:  Show file's size and usage (can filter with ^[0-9]*G)
+- System info:
 
-18. ip addr show   (number following inet is IP)
+  * uname -a: Show system info.
+    
+  * inxi: Show lots of system info (-S for distro/DE version)
+    
+  * ls /usr/bin/\*session  (Find out which DE has been installed)
 
-19. iotop:  View disk usage of every process
+- du -h /home/david: Show file's size. (can filter with grep ^[0-9]*G)
 
-20. nmcli dev wifi:  List available Wifi AP
+- ip addr show (the number following inet is IP)
 
-    nmcli dev wifi connect [iTaiwan] password [0123456789]
+- iotop:  View disk usage of every process.
 
-21. lshw:  List hardware info
+- nmcli dev wifi: List available Wifi APs.
 
-22. light-locker-command -l:  Switch user (without logout)
+  * nmcli dev wifi connect [iTaiwan] password [0123456789]
 
-23. head -n x ./myfile:  Print the first x line of file/stdin(if file not provided)
+- lshw: List hardware info.
 
-24. User:
+- lscpu: Show cpu architecture info.
 
-    who:  Show current user
+- date -d @[seconds since epoch]: convert "seconds since epoch" to readable date.
 
-    pkill -u [username]:  Logout an user
+- head -n x ./myfile: Print the first x line of file/stdin (if file not provided).
 
-25. Groups:
+- User:
 
-	groups [user]:  Show user's groups
+  * who:  Show current user.
 
-    usermod -a -G [group] [user]:  Add user to a group
+  * pkill -u [username]:  Logout a user.
+    
+  * adduser [name] --home /home/name --shell /bin/bash
+
+- Groups:
+
+  * groups [user]:  Show a user's groups
+
+  * usermod -a -G [group] [user]:  Add user to a group.
 	
-    gpasswd -d [user] [group]:  Remove user from a group
+  * gpasswd -d [user] [group]:  Remove user from a group.
 
-26. eCryptfs:  sudo mount -t ecryptfs [.Private] [/mnt/point]
+- Mount eCryptfs: sudo mount -t ecryptfs [.Private] [/mnt/point] (`su` are needed sometimes)
 
-27. wmctrl -k on:  Show desktop (off=switch back)
+- wmctrl -k on: Minimize all windows. (off=switch back)
