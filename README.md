@@ -121,7 +121,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `du -h /home/david`: Show file's size. (can filter with `grep ^[0-9]*G`)
 
-- `ip addr show` (the number following inet is IP)
+- `ip link`: List network interfaces (NIC).
+
+  * `ip addr show` (the number following inet is IP)
+  
+  * `ifconfig eth0:0 [addr]`: Create virtual interface.
 
 - `iotop`:  View disk usage of every process.
 
