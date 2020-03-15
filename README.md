@@ -121,11 +121,13 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `du -h /home/david`: Show file's size. (can filter with `grep ^[0-9]*G`)
 
-- `ip link`: List network interfaces (NIC).
+- `ip link`: List network interfaces (NIC). Check if there is "UP" inside <>.
 
-  * `ip addr show` (the number following inet is IP)
+  * `ip addr add [ip] broadcast + dev [interface]`: Add a static ip.
   
-  * `ifconfig eth0:0 [addr]`: Create virtual interface.
+  * `ip route add default via [gateway ip] dev [interface]`: Add a default router.
+  
+  * `ifconfig eth0:0 [addr]`: Create a virtual interface.
 
 - `iotop`:  View disk usage of every process.
 
