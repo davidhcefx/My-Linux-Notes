@@ -53,6 +53,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - Grep to filter: `ls | grep "sys"`
 
+  * `^[a-z]`: Starting / `$`: Ending / `.` Any / `?` Optional
+
 - Print contents: `cat [textfile]`
 
 - Rename through moving: `mv aaa abbb`
