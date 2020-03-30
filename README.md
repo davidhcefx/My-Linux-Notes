@@ -177,7 +177,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - Message box:
 
-  * `zenity --question --window-icon="qSestion" --title="title" --text="some text"`
+  * `zenity --question --window-icon="question" --title="title" --text="some text"`
   
   * `notify-send -t 4000 "some message"`
 
