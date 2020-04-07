@@ -48,6 +48,9 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 17. Secure boot: Not all modules are signed, hence the error message: XX kernel module not found or loaded.
 
+18. '-' is nothing special; it is just that programs such as `cat` view it as *stdin*.
+
+19. Disable alias temporary: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
 
 ## Commands
 
@@ -226,3 +229,10 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - `strace`: Trace all syscall of a program.
 
 - `sudo rm -rf --no-preserve-root / &>/dev/null` (don't try it :D)
+
+- |   | Set | Unset | Show
+  | --- | --- | --- | ---
+  | Shell variables   | `var=[value]`        | `unset var`     | `set`
+  | Environ variables | `export var=[value]` | `export -n var` | `printenv`
+
+  * If a variable is already in Environ, the first method would also change it.
