@@ -196,10 +196,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * `p` = Print matched line.
     * `d` = Delete matched line.
   * Find: `sed -n '/RegEx/p'`  (`-n` = disable echoing)
-    * or `/RegEx/{lot;of;commands}`
+    * or `/RegEx/{lots;of;commands}`
   * Print After xxx: `0,/xxx/d;p` (GNU-only)
     * Before xxx: `0,/xxx/p`
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
+  * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
   * Multiple scripts: `-e 'script1' -e 'script2'`.
   * `[0-9]*` would try to match the longest first occurence.
   * `x` = Swap pattern space with hold space. (pattern space = the matching line)
