@@ -181,7 +181,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - Message box:
 
   * `zenity --question --window-icon="question" --title="title" --text="some text"`
-  
+
   * `notify-send -t 4000 "some message"`
 
 - `sed`:
@@ -207,18 +207,20 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `$!`: Holds the last background process' pid.
 
-- `find -name [/path/file]` (regex supported)
+- `find . -name [basename]` (wildcards supported)
 
-  * `-size 100c ! -executable` (not executable and size == 100 byte)
+  * `-type f -size 100c -mtime -3 -maxdepth 5`
+
+  * `find . -regex [.*full/path/regex]`
 
 - `lsof`: find out which process opened a file.
 
 - Vim editor:
 
   * `/` (search), `/\%xa9` (search hex)
-  
+
   * `:d30` (delete 30 lines)
-  
+
   * `ga` (show current char)
 
 - `awk '{print $2}'`: Print second column, seperated by whitespaces.
