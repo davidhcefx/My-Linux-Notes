@@ -83,11 +83,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `apt-cache search` ...
 
   * `apt-cache show [package name]` (detail info)
-   
+ 
   * `apt autoremove` (remove useless packages)
-   
+ 
   * `apt-get update` (refresh updatable list)
-   
+ 
   * `apt-get upgrade` (install update)
 
   * `add-apt-repository ppa:webupd8team/java` (add package source)
@@ -119,9 +119,9 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - System info:
 
   * `uname -a`: Show system info.
-    
+
   * `inxi`: Show lots of system info (`-S` for distro/DE version)
-    
+
   * `ls /usr/bin/*session`  (Find out which DE has been installed)
 
 - `du -h /home/david`: Show file's size. (can filter with `grep ^[0-9]*G`)
@@ -129,9 +129,9 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - `ip link`: List network interfaces (NIC). Check if there is "UP" inside <>.
 
   * `ip addr add [ip] broadcast + dev [interface]`: Add a static ip.
-  
+
   * `ip route add default via [gateway ip] dev [interface]`: Add a default router.
-  
+
   * `ifconfig eth0:0 [addr]`: Create a virtual interface.
 
 - `iotop`:  View disk usage of every process.
@@ -153,7 +153,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `who`: Show current user.
 
   * `pkill -u [username]`: Logout a user.
-    
+
   * `adduser [name] --home /home/name --shell /bin/bash`
 
 - Groups:
@@ -175,7 +175,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - `stat`: Show file modification time, size, links, type and permission.
 
   * `file`: Show file type.
-  
+
 - `xxd`: Hex dump (`-b` for binary dump)
 
 - Message box:
@@ -223,9 +223,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
   * `ga` (show current char)
 
+- `cut -d " " -f2`:  Print second column, seperated by a single space.
+
 - `awk '{print $2}'`: Print second column, seperated by whitespaces.
 
-  * `cut -d " " -f2`:  Print second column, seperated by a single space.
+  * `awk -v perm="-rwxr-xr-x" '$1 == perm { $1=""; print $0; system(id) }'`
 
 - `history -c; history -r`: Clear current bash history in memory.
 
