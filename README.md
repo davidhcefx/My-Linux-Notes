@@ -209,7 +209,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `find . -name [basename]` (wildcards supported)
 
-  * `-type f -size 100c -mtime -3 -maxdepth 5`
+  * Options: `-type f -size 100c -mtime -3 -maxdepth 5`
 
   * `find . -regex [.*full/path/regex]`
 
