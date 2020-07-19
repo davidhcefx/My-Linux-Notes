@@ -239,3 +239,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   | Environ variables | `export var=[value]` | `export -n var` | `printenv`
 
   * If a variable is already in Environ, the first method would also change it.
+
+- `trap "echo "I have been interrupted"; exit 0" SIGINT`
+  * Disable interrupt: "" / Restore to default: -
+
+- `kill -SIGINT [process_id]`: Send signals to processes.
