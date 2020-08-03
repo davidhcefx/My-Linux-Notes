@@ -248,3 +248,6 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * Disable interrupt: "" / Restore to default: -
 
 - `kill -SIGINT [process_id]`: Send signals to processes.
+
+- `timeout [duration] [command]`: Run a command with a time limit.
+
