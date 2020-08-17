@@ -50,7 +50,12 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 18. '-' is nothing special; it is just that programs such as `cat` view it as *stdin*.
 
-19. Disable alias temporary: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
+19. Disable alias temporarily: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
+
+20. Analysing core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
+
+21. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
+
 
 ## Commands
 
