@@ -97,6 +97,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
   * `add-apt-repository ppa:webupd8team/java` (add package source)
 
+  * `--reinstall`
+
 - `dpkg`: `-i` (install)
 
   * `-l` (list packages)
@@ -104,6 +106,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `-r` (remove)
 
   * `-p` (also purge config)
+
+  * `dpkg-reconfigure`
 
 - `sudo passwd root` (change root account's password)
 
