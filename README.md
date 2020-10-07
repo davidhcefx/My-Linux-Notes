@@ -215,6 +215,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * Multiple scripts: `-e 'script1' -e 'script2'`.
   * `[0-9]*` would try to match the longest first occurence.
   * `x` = Swap pattern space with hold space. (pattern space = the matching line)
+  * Escape the replace string: `sed -e 's/[\/&]/\\&/g'`
 
 - `$!`: Holds the last background process' pid.
 
