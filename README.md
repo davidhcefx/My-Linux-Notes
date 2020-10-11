@@ -178,6 +178,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - `wmctrl -k on`: Minimize all windows. (`off`=switch back)
 
 - `time [command]`: Record command's execution time.
+  * Get output:  `bash -c "time [command]" 2>&1`
 
 - `xdotool`: Can emulate key presses and mouse clicks.
 
