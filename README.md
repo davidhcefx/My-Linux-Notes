@@ -202,7 +202,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * Options:
     * `g` = Replace all.
     * `2` = Perform on the 2nd occurence.
-    * `I` = Case isensitive
+    * `i` = Case isensitive
     * `p` = Print matched line.
     * `d` = Delete matched line.
   * Find: `sed -n '/RegEx/p'`  (`-n` = disable echoing)
