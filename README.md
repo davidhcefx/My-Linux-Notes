@@ -11,6 +11,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 2. To create a Desktop/Launcher shortcut: Just create a `.desktop` file.
 
+    * Beware that `%k` auto-includes `\"\"` (not documented clearly)
+
 3. Use `TAB` for auto-complete in Terminal. (Won't forget names anymore!)
 
 4. Install `rar` to unpack a `.rar` file.
