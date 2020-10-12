@@ -195,7 +195,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `notify-send -t 4000 "some message"`
 
 - `sed`:
-  * Substitution: `'4s/RegEx/Replace/Options'` (after line 4)
+  * Substitution: `'4,7s/RegEx/Replace/Options'` (line 4~7)
     * Deliminator can be other than `/`, eg. `|` `:` `_`.
     * Use `\(foo\)` to remember and `\1` `\2` `\3` to show.
     * `&` = The matching part only.
