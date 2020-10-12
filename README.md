@@ -211,7 +211,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * Before xxx: `0,/xxx/p`
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
-    * Extended (-r): `a+`  `a?`  `(a|b)`  `a{N,M}`
+    * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
     * Charset: `\s` (space), `\d` (digit), `\l` (lower), `\u` (upper), `\w` (word) and `\S` (^space)
   * Multiple scripts: `-e 'script1' -e 'script2'`.
   * `[0-9]*` would try to match the longest first occurence.
