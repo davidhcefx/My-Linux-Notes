@@ -61,6 +61,10 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 ## Commands
 
+- Read the manual: `man [something](.SECTION_NUMBER)`
+
+  * `info [somthing]` can also be helpful.
+
 - Grep to filter: `ls | grep "sys"`
 
   * `^[a-z]`: Starting / `$`: Ending / `.` Any / `?` Optional
