@@ -56,6 +56,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 20. Analysing core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
 
+   * Cygwin: `export CYGWIN="$CYGWIN error_start=dumper -d %1 %2"`
+
 21. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
 
 
@@ -268,3 +270,4 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `timeout [duration] [command]`: Run a command with a time limit.
 
+- `lslogins -u`: 看使用者登入時間、process 數等。
