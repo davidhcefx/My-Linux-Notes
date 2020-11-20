@@ -264,11 +264,20 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * If a variable is already in Environ, the first method would also change it.
 
 - `trap "echo "I have been interrupted"; exit 0" SIGINT`
-  * Disable interrupt: "" / Restore to default: -
-  * `Ctrl-c` will send SIGINT to all foreground processes (inner one handle first)
+
+    * Disable interrupt: `""` ; Restore to default: `-`
+
+    * `Ctrl-c` will send SIGINT to all foreground processes (inner one handle first)
+
+    * Avoid calling `exit 0` directly; Write `trap - SIGINT; kill -2 $$` instead.
+
+        - Bash uses [Wait-and-Cooperative-Exit](https://www.cons.org/cracauer/sigint.html), which will depend on how its child has terminated.
+
 
 - `kill -SIGINT [process_id]`: Send signals to processes.
 
 - `timeout [duration] [command]`: Run a command with a time limit.
 
-- `lslogins -u`: 看使用者登入時間、process 數等。
+- `lslogins -u`:
+
+ 看使用者登入時間、process 數等。
