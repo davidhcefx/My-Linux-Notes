@@ -265,6 +265,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `trap "echo "I have been interrupted"; exit 0" SIGINT`
   * Disable interrupt: "" / Restore to default: -
+  * `Ctrl-c` will send SIGINT to all foreground processes (inner one handle first)
 
 - `kill -SIGINT [process_id]`: Send signals to processes.
 
