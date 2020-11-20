@@ -265,14 +265,13 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `trap "echo "I have been interrupted"; exit 0" SIGINT`
 
-    * Disable interrupt: `""` ; Restore to default: `-`
+    * Ignore signal: `""` ; Restore to default: `-`
 
     * `Ctrl-c` will send SIGINT to all foreground processes (inner one handle first)
 
     * Avoid calling `exit 0` directly; Write `trap - SIGINT; kill -2 $$` instead.
 
-        - Bash uses [Wait-and-Cooperative-Exit](https://www.cons.org/cracauer/sigint.html), which will depend on how its child has terminated.
-
+        - For Bash uses [Wait-and-Cooperative-Exit](https://www.cons.org/cracauer/sigint.html), which will depend on how its child has terminated.
 
 - `kill -SIGINT [process_id]`: Send signals to processes.
 
