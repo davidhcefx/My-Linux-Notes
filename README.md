@@ -278,6 +278,4 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `timeout [duration] [command]`: Run a command with a time limit.
 
-- `lslogins -u`:
-
- 看使用者登入時間、process 數等。
+- `lslogins -u`: View each user's login time, number of process etc.
