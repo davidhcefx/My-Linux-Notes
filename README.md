@@ -11,7 +11,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 2. To create a Desktop/Launcher shortcut: Just create a `.desktop` file.
 
-    * Beware that `%k` auto-includes `\"\"` (not documented clearly)
+  * Beware that `%k` auto-includes `\"\"` (not documented clearly)
 
 3. Use `TAB` for auto-complete in Terminal. (Won't forget names anymore!)
 
@@ -36,29 +36,33 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 10. Ubuntu 16+ DO NOT run startup scripts from `/etc/rcX.d` anymore; Use the crontab `@reboot` method instead. (But do remember that root's crontab cannot read encrypted user data)
 
-11. Sticky bit: `------t` Only owner can remove, even it is mod `777` (eg. /tmp)
+11. Crontab can be dumped and loaded: `crontab -l > dump; crontab dump`
 
-12. SetUID: Do not support Scripts; Executables are also not supported under `/tm`p, `/home`. (which are mounted as `nosuid`)
+  * The format of `/etc/crontab` is different than `crontab -e`.
 
-13. Systemctl's `is-enable` command can check for "generated scripts".
+12. Sticky bit: `------t` Only owner can remove, even it is mod `777` (eg. /tmp)
 
-14. Calling grep multiple time is faster than parsing with a single While-loop. (big file)
+13. SetUID: Do not support Scripts; Executables are also not supported under `/tm`p, `/home`. (which are mounted as `nosuid`)
 
-15. MessageOfTheDay (The tty greetings) is under `/etc/update-motd.d/`.
+14. Systemctl's `is-enable` command can check for "generated scripts".
 
-16. `Locate`: A utility for reverse-mapping filenames to paths. However, it will scan the whole system everyday (`updatedb.mlocate`), so remember to turn it off if not needed.
+15. Calling grep multiple time is faster than parsing with a single While-loop. (big file)
 
-17. Secure boot: Not all modules are signed, hence the error message: XX kernel module not found or loaded.
+16. MessageOfTheDay (The tty greetings) is under `/etc/update-motd.d/`.
 
-18. '-' is nothing special; it is just that programs such as `cat` view it as *stdin*.
+17. `Locate`: A utility for reverse-mapping filenames to paths. However, it will scan the whole system everyday (`updatedb.mlocate`), so remember to turn it off if not needed.
 
-19. Disable alias temporarily: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
+18. Secure boot: Not all modules are signed, hence the error message: XX kernel module not found or loaded.
 
-20. Analysing core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
+19. '-' is nothing special; it is just that programs such as `cat` view it as *stdin*.
+
+20. Disable alias temporarily: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
+
+21. Analysing core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
 
    * Cygwin: `export CYGWIN="$CYGWIN error_start=dumper -d %1 %2"`
 
-21. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
+22. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
 
 
 ## Commands
@@ -142,6 +146,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `ls /usr/bin/*session`  (Find out which DE has been installed)
 
 - `du -h /home/david`: Show file's size. (can filter with `grep ^[0-9]*G`)
+
+  * `df -h`: Show disk usage.
 
 - `ip link`: List network interfaces (NIC). Check if there is "UP" inside <>.
 
