@@ -58,9 +58,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 20. Disable alias temporarily: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
 
-21. Analysing core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
+21. Analyze core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
 
-   * Cygwin: `export CYGWIN="$CYGWIN error_start=dumper -d %1 %2"`
+  * Can also be viewed with `readelf` or `objdump -s`.
+
+  * Cygwin: `export CYGWIN="$CYGWIN error_start=dumper -d %1 %2"`
 
 22. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
 
