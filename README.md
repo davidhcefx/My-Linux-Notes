@@ -60,7 +60,19 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 21. Analyze core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
 
-  * Can also be viewed with `readelf` or `objdump -s`.
+  * Can also be viewed with `readelf` or `objdump -s`, eg. *note0* section:
+    ```
+    OFFSET  VALUES (SIZE)
+    34      pid, ppid, pgrd, sid   (DWORD)
+    44      usertime, systime, cum_usertime, cum_systime (0x10)
+    84      r15, r14, r13, r12     (QWORD)
+    a4      bp, bx, r11, r10       (QWORD)
+    c4      r9, r8, ax, cx         (QWORD)
+    e4      dx, si, di, orig_ax    (QWORD)
+    104     ip, cs, flags, sp      (QWORD)
+    124     ss, fsbase, gsbase, ds (QWORD)
+    144     es, fs, gs             (QWORD)
+    ```
 
   * Cygwin: `export CYGWIN="$CYGWIN error_start=dumper -d %1 %2"`
 
