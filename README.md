@@ -78,6 +78,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 22. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
 
+23. ptrace：only child relationship or setup PTRACE_TRACEME flag can a process been traced (`/proc/sys/kernel/yama/ptrace_scope`)
+
 
 ## Commands
 
@@ -225,7 +227,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - `sed`:
   * Substitution: `'4,7s/RegEx/Replace/Options'` (line 4~7)
     * Deliminator can be other than `/`, eg. `|` `:` `_`.
-    * Use `\(foo\)` to remember and `\1` `\2` `\3` to show.
+    * Use `\(foo\)` to remember and `\1` `\2` `\3` to recall.
     * `&` = The matching part only.
   * Options:
     * `g` = Replace all.
@@ -241,10 +243,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
     * Charset: `\s` (space), `\d` (digit), `\l` (lower), `\u` (upper), `\w` (word) and `\S` (^space)
-  * Multiple scripts: `-e 'script1' -e 'script2'`.
-  * `[0-9]*` would try to match the longest first occurence.
-  * `x` = Swap pattern space with hold space. (pattern space = the matching line)
-  * Escape the replace string: `sed -e 's/[\/&]/\\&/g'`
+    * Regex (eg. `[0-9]*`) tries to match the longest first occurence.
+  * Multiple scripts (expression): `-e 'script1' -e 'script2'`.
+  * `x`: Swap pattern space with hold space. (pattern space: the matching line)
+  * Escaping the replace string: `sed -e 's/[\/&]/\\&/g'`
+  * Beware of shell expansion within double quotes `""`: `$`, ``` and `\\`.
 
 - `$!`: Holds the last background process' pid.
 
