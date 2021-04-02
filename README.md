@@ -25,7 +25,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     |--- | --- |
     | R: exit Raw mode (X window) | E: terminate all |
     | I: force terminate | S: Sync disk |
-    | U: umount disk | B: reboot |	
+    | U: umount disk | B: reboot |
     | F: call oom_kill (kill one) | |
 
 7. `htop`: A colorful yet handy system resource monitor.
@@ -116,11 +116,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `apt-cache search` ...
 
   * `apt-cache show [package name]` (detail info)
- 
+
   * `apt autoremove` (remove useless packages)
- 
+
   * `apt-get update` (refresh updatable list)
- 
+
   * `apt-get upgrade` (install update)
 
   * `add-apt-repository ppa:webupd8team/java` (add package source)
@@ -143,7 +143,9 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
   * `umount /dev/sda1`
 
-- `sudo -k`: Reset credential, require password to use sudo again.
+- `su [user] --shell /bin/bash`: Login as user with a shell.
+
+  * `sudo -k`: Reset credential, require password to use sudo again.
 
 - `rsync -av ~/Desktop/ ~/backup/fold1/` (A tool more powerful than cp)
 
@@ -300,4 +302,10 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `timeout [duration] [command]`: Run a command with a time limit.
 
+- `mktemp --tmpdir prefix_XXXXXX`: Create unique temp file with race-condition safety.
+
 - `lslogins -u`: View each user's login time, number of process etc.
+
+- `swapoff -a`: Move data from swap back to RAM and disable swap.
+
+- `journalctl (-u apache2)`: View systemd logs.
