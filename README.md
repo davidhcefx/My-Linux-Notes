@@ -85,6 +85,10 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - Read the manual: `man [something](.SECTION_NUMBER)`
 
+  * `-f`: search among page names.
+
+  * `-M [/usr/local/man]`: search under a different MANPATH.
+
   * `info [somthing]` can also be helpful.
 
 - Grep to filter: `ls | grep "sys"`
@@ -202,7 +206,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `groups [user]`:  Show a user's groups
 
   * `usermod -a -G [group] [user]`:  Add user to a group.
-	
+
   * `gpasswd -d [user] [group]`:  Remove user from a group.
 
 - Mount eCryptfs: `sudo mount -t ecryptfs [.Private] [/mnt/point]` (`su` are needed sometimes)
@@ -237,10 +241,12 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * `i` = Case isensitive
     * `p` = Print matched line.
     * `d` = Delete matched line.
-  * Find: `sed -n '/RegEx/p'`  (`-n` = disable echoing)
+    * `q` = Quit.
+  * Find pattern: `sed -n '/RegEx/p'`  (`-n` = disable echoing)
     * or `/RegEx/{lots;of;commands}`
   * Print After xxx: `0,/xxx/d;p` (GNU-only)
-    * Before xxx: `0,/xxx/p`
+    * Before xxx: `/xxx/q`
+      * or `/xxx/Q` (GNU-only)
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
