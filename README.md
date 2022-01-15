@@ -76,6 +76,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
   * Cygwin: `export CYGWIN="$CYGWIN error_start=dumper -d %1 %2"`
 
+  * Beware that Apport/ABRT sometimes hide the core files.
+
 22. Color is just CSI sequences, while programs detect the destination themselves (eg. ls --color=auto)
 
 23. ptrace：only child relationship or setup PTRACE_TRACEME flag can a process been traced (`/proc/sys/kernel/yama/ptrace_scope`)
@@ -231,7 +233,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * `notify-send -t 4000 "some message"`
 
 - `sed`:
-  * Substitution: `'4,7s/RegEx/Replace/Options'` (line 4~7)
+  * Substitution: `'4,7s/Regex/Replace/Options'` (line 4~7)
     * Deliminator can be other than `/`, eg. `|` `:` `_`.
     * Use `\(foo\)` to remember and `\1` `\2` `\3` to recall.
     * `&` = The matching part only.
@@ -242,11 +244,11 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * `p` = Print matched line.
     * `d` = Delete matched line.
     * `q` = Quit.
-  * Find pattern: `sed -n '/RegEx/p'`  (`-n` = disable echoing)
-    * or `/RegEx/{lots;of;commands}`
-  * Print After xxx: `0,/xxx/d;p` (GNU-only)
-    * Before xxx: `/xxx/q`
-      * or `/xxx/Q` (GNU-only)
+  * Find pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
+    * or `/Regex/{lots;of;commands}`
+  * Print After xxx: `0,/xxx/d;p` (GNU-only, excluding)
+    * Before xxx: `/xxx/q` (including)
+      * or `/xxx/Q` (GNU-only, excluding)
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
@@ -254,16 +256,18 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * Regex (eg. `[0-9]*`) tries to match the longest first occurence.
   * Multiple scripts (expression): `-e 'script1' -e 'script2'`.
   * `x`: Swap pattern space with hold space. (pattern space: the matching line)
-  * Escaping the replace string: `sed -e 's/[\/&]/\\&/g'`
+  * Escaping the replace string: `'s/[\/&]/\\&/g'`
   * Beware of shell expansion within double quotes `""`: `$`, ``` and `\\`.
 
 - `$!`: Holds the last background process' pid.
 
-- `find . -name [basename]` (wildcards supported)
+- `find . -name 'basename'` (wildcards supported)
 
   * Options: `-type f -size 100c -mtime -3 -maxdepth 5`
 
-  * `find . -regex [.*full/path/regex]`
+  * `find . -regex '.*full/path/regex'`
+
+  * `find . -regex '\./ignore/.*' -prune -or -name 'name'` (skip './ignore/' subdir)
 
 - `lsof`: find out which process opened a file.
 
@@ -279,7 +283,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `awk '{print $2}'`: Print second column, seperated by whitespaces.
 
-  * `awk -v perm="-rwxr-xr-x" '$1 == perm { $1=""; print $0; system(id) }'`
+  *  `ls -l | awk -v perm="-rwxr-xr-x" '$1 == perm { $1="EXE: "; printf "%s\n", $0; system("sleep 1") }'`
 
 - `history -c; history -r`: Clear current bash history in memory.
 
