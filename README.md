@@ -252,7 +252,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
-    * Charset: `\s` (space), `\d` (digit), `\l` (lower), `\u` (upper), `\w` (word) and `\S` (^space)
+    * Charset: `[:space:]`, `[:digit:]`, `[:alpha:]`, `[:lower:]`, `[:punct:]`
     * Regex (eg. `[0-9]*`) tries to match the longest first occurence.
   * Multiple scripts (expression): `-e 'script1' -e 'script2'`.
   * `x`: Swap pattern space with hold space. (pattern space: the matching line)
