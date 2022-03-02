@@ -244,8 +244,8 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * `p` = Print matched line.
     * `d` = Delete matched line.
     * `q` = Quit.
-  * Find pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
-    * or `/Regex/{lots;of;commands}`
+  * Find a pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
+    * or `/Regex/{lots;of;commands}`, `2,$p` (print line 2~end)
   * Print After xxx: `0,/xxx/d;p` (GNU-only, excluding)
     * Before xxx: `/xxx/q` (including)
       * or `/xxx/Q` (GNU-only, excluding)
@@ -253,11 +253,14 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
     * Charset: `[:space:]`, `[:digit:]`, `[:alpha:]`, `[:lower:]`, `[:punct:]`
-    * Regex (eg. `[0-9]*`) tries to match the longest first occurence.
+    * A `*` always tries to match the longest first occurence.
   * Multiple scripts (expression): `-e 'script1' -e 'script2'`.
   * `x`: Swap pattern space with hold space. (pattern space: the matching line)
   * Escaping the replace string: `'s/[\/&]/\\&/g'`
-  * Beware of shell expansion within double quotes `""`: `$`, ``` and `\\`.
+  * Escaping the pattern (for BRE): `-E 's/([]\/^$.*]|\[)/\\&/g'`
+  * Caution:
+    * Beware of shell expansion within double quotes `""`: `$`, ``` and `\\`.
+    * Matching non-ASCII characters [might go wrong](https://superuser.com/questions/1347826/how-to-avoid-sed-changing-the-file-format).
 
 - `$!`: Holds the last background process' pid.
 
@@ -300,13 +303,13 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 
 - `trap "echo "I have been interrupted"; exit 0" SIGINT`
 
-    * Ignore signal: `""` ; Restore to default: `-`
+  * Ignore signal: `""` ; Restore to default: `-`
 
-    * `Ctrl-c` will send SIGINT to all foreground processes (inner one handle first)
+  * `Ctrl-c` will send SIGINT to all foreground processes (inner one handle first)
 
-    * Avoid calling `exit 0` directly; Write `trap - SIGINT; kill -2 $$` instead.
+  * Avoid calling `exit 0` directly; Write `trap - SIGINT; kill -2 $$` instead.
 
-        - For Bash uses [Wait-and-Cooperative-Exit](https://www.cons.org/cracauer/sigint.html), which will depend on how its child has terminated.
+    - For Bash uses [Wait-and-Cooperative-Exit](https://www.cons.org/cracauer/sigint.html), which will depend on how its child has terminated.
 
 - `kill -SIGINT [process_id]`: Send signals to processes.
 
