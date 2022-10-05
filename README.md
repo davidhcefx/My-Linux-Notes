@@ -237,6 +237,7 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * Deliminator can be other than `/`, eg. `|` `:` `_`.
     * Use `\(foo\)` to remember and `\1` `\2` `\3` to recall.
     * `&` = The matching part only.
+
   * Options:
     * `g` = Replace all.
     * `2` = Perform on the 2nd occurence.
@@ -244,16 +245,22 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
     * `p` = Print matched line.
     * `d` = Delete matched line.
     * `q` = Quit.
+
   * Find a pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
-    * or `/Regex/{lots;of;commands}`, `2,$p` (print line 2~end)
-  * Print After xxx: `0,/xxx/d;p` (GNU-only, excluding)
+    * or `/Regex/{lots;of;commands}`, eg. `1d;$d` (ignore first and last line)
+
+  * Print after xxx: `0,/xxx/d;p` (GNU-only, excluding)
     * Before xxx: `/xxx/q` (including)
       * or `/xxx/Q` (GNU-only, excluding)
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
+
+  * Print 2nd line ~ end: `2,$p`
+
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
     * Charset: `[:space:]`, `[:digit:]`, `[:alpha:]`, `[:lower:]`, `[:punct:]`
     * A `*` always tries to match the longest first occurence.
+
   * Multiple scripts (expression): `-e 'script1' -e 'script2'`.
   * `x`: Swap pattern space with hold space. (pattern space: the matching line)
   * Escaping the replace string: `'s/[\/&]/\\&/g'`
@@ -322,3 +329,6 @@ My learning note while exploring Linux, Ubuntu and Xubuntu.
 - `swapoff -a`: Move data from swap back to RAM and disable swap.
 
 - `journalctl (-u apache2)`: View systemd logs.
+
+- `xargs`: Place input at arguments, eg. `ls *.txt | xargs stat`
+
