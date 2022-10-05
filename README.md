@@ -1,5 +1,5 @@
-# My_Linux_Note
-My learning note while exploring Linux, Ubuntu and Xubuntu.
+# My Linux Notes
+My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - [System Tips](#system-tips)
 - [Commands](#commands)
