@@ -9,15 +9,13 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 1. To execute a file: `./file`
 
-2. To create a Desktop/Launcher shortcut: Just create a `.desktop` file.
+2. To create a Desktop or Launcher shortcut, you need a `.desktop` file. (Refer to /usr/share/applications)
 
-  * Beware that `%k` auto-includes `\"\"` (not documented clearly)
-
-3. Use `TAB` for auto-complete in Terminal. (Won't forget names anymore!)
+3. Use `TAB` for auto-completion in terminal. (Won't forget names anymore!)
 
 4. Install `rar` to unpack a `.rar` file.
 
-5. System Freeze: Try `Ctrl-Alt-F1` for accessing the terminal.
+5. System freezed? Try `Ctrl-Alt-F1` to access the terminal.
 
 6. SysRq: `Alt` + `SysRq` + "REISUB"  ("busier")
 
@@ -30,9 +28,9 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 7. `htop`: A colorful yet handy system resource monitor.
 
-8. Rapid system simulation: `qemu-system-x86_64 [iso file]`
+8. Fast OS simulation: `qemu-system-x86_64 [iso file]`
 
-9. Wanna list RecycleBin according to deletion time? -> Go to `~/.local/share/Trash/files`, and then `stat -c "%z - %n" * | sort -t'-'`.
+9. List files in the recycle bin sorted by deletion time: `cd ~/.local/share/Trash/files; stat -c "%z - %n" * | sort -t'-'`.
 
 10. Ubuntu 16+ DO NOT run startup scripts from `/etc/rcX.d` anymore; Use the crontab `@reboot` method instead. (But do remember that root's crontab cannot read encrypted user data)
 
@@ -40,15 +38,15 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * The format of `/etc/crontab` is different than `crontab -e`.
 
-12. Sticky bit: `------t` Only owner can remove, even it is mod `777` (eg. /tmp)
+12. Sticky bit: `------t`. Only the owner can remove it, even if it's chmod `777` (eg. /tmp)
 
-13. SetUID: Do not support Scripts; Executables are also not supported under `/tm`p, `/home`. (which are mounted as `nosuid`)
+13. SetUID: Cannot be applied to _scripts_; Executables are also not supported under `/tmp` and `/home`. (which are mounted as `nosuid`)
 
 14. Systemctl's `is-enable` command can check for "generated scripts".
 
-15. Calling grep multiple time is faster than parsing with a single While-loop. (big file)
+15. Calling grep multiple time is faster than parsing with a single while-loop. (for big files)
 
-16. MessageOfTheDay (The tty greetings) is under `/etc/update-motd.d/`.
+16. MessageOfTheDay (the tty greetings) is under `/etc/update-motd.d/`.
 
 17. `Locate`: A utility for reverse-mapping filenames to paths. However, it will scan the whole system everyday (`updatedb.mlocate`), so remember to turn it off if not needed.
 
