@@ -231,10 +231,12 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
   * `notify-send -t 4000 "some message"`
 
 - `sed`:
-  * Substitution: `'4,7s/Regex/Replace/Options'` (line 4~7)
-    * Deliminator can be other than `/`, eg. `|` `:` `_`.
-    * Use `\(foo\)` to remember and `\1` `\2` `\3` to recall.
-    * `&` = The matching part only.
+  * Substitution: `'s/Regex/ReplaceStr/Options'`
+    * Deliminators can be other than `/`, eg. `|` `:` `#`
+    * Use `\(foo\)` to remember and `\1` `\2` `\3` to recall. (note that backreference runs slower)
+    * Use `&` in ReplaceStr to get the matching part.
+    * Substitute only within line 1~4: `1,4s/.../.../`
+      * only within matched lines: `/Pattern/s/.../.../`
 
   * Options:
     * `g` = Replace all.
@@ -245,24 +247,23 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
     * `q` = Quit.
 
   * Find a pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
-    * or `/Regex/{lots;of;commands}`, eg. `1d;$d` (ignore first and last line)
+    * `/Pattern/{1d;$d}`         (find Pattern, but ignore the first and last line)
 
   * Print after xxx: `0,/xxx/d;p` (GNU-only, excluding)
     * Before xxx: `/xxx/q` (including)
       * or `/xxx/Q` (GNU-only, excluding)
     * It means, pretend all lines were matched (so would be deleted) until finding xxx.
-
-  * Print 2nd line ~ end: `2,$p`
+    * Print 2nd line ~ end: `2,$p`
 
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
     * Charset: `[:space:]`, `[:digit:]`, `[:alpha:]`, `[:lower:]`, `[:punct:]`
     * A `*` always tries to match the longest first occurence.
 
-  * Multiple scripts (expression): `-e 'script1' -e 'script2'`.
+  * Run multiple sed sequentially: `sed -e 'script1' -e 'script2'`
   * `x`: Swap pattern space with hold space. (pattern space: the matching line)
-  * Escaping the replace string: `'s/[\/&]/\\&/g'`
-  * Escaping the pattern (for BRE): `-E 's/([]\/^$.*]|\[)/\\&/g'`
+  * Escaping the ReplaceStr (for delim=/): `'s/[\/&]/\\&/g'`
+  * Escaping the Pattern (for BRE and delim=/): `-E 's/([]\/^$.*]|\[)/\\&/g'`
   * Caution:
     * Beware of shell expansion within double quotes `""`: `$`, ``` and `\\`.
     * Matching non-ASCII characters [might go wrong](https://superuser.com/questions/1347826/how-to-avoid-sed-changing-the-file-format).
