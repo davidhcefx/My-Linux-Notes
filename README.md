@@ -238,22 +238,21 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
     * Substitute only within line 1~4: `1,4s/.../.../`
       * only within matched lines: `/Pattern/s/.../.../`
 
-  * Options:
+  * Options or commands:
     * `g` = Replace all.
     * `2` = Perform on the 2nd occurence.
     * `i` = Case isensitive
     * `p` = Print matched line.
     * `d` = Delete matched line.
     * `q` = Quit.
+    * `i\` = Insert text before.
 
-  * Find a pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
-    * `/Pattern/{1d;$d}`         (find Pattern, but ignore the first and last line)
-
-  * Print after xxx: `0,/xxx/d;p` (GNU-only, excluding)
-    * Before xxx: `/xxx/q` (including)
-      * or `/xxx/Q` (GNU-only, excluding)
-    * It means, pretend all lines were matched (so would be deleted) until finding xxx.
-    * Print 2nd line ~ end: `2,$p`
+  * Find and print a pattern: `sed -n '/Regex/p'`  (`-n` = disable echoing)
+    * `2,$p`: Print 2nd line ~ end
+    * `/xxx/,$p`: Print after including xxx
+      * `1,/xxx/d`: excluding
+    * `/xxx/q`: Print before including xxx
+      * `/xxx/q;p`: excluding (if not match then print)
 
   * Regex: `a*`  `a\+`  `a\?`  `\(a\|b\)`  `a\{N,M\}`  (<- N~M matches)
     * Extended (-E): `a+`  `a?`  `(a|b)`  `a{N,M}`
