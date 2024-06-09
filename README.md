@@ -291,7 +291,11 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - `awk '{print $2}'`: Print second column, seperated by whitespaces.
 
-  *  `ls -l | awk -v perm="-rwxr-xr-x" '$1 == perm { $1="EXE: "; printf "%s\n", $0; system("sleep 1") }'`
+  * `ls -l | awk -v perm="-rwxr-xr-x" '$1 == perm { $1="EXE: "; printf "%s\n", $0; system("sleep 1") }'`
+
+  * `awk -F . '{printf("%d %d %d"), $1, $2, $3}'`: version string to integer
+
+  * `awk '/pty1/ {if ($1=="david") print $2 }'`: when contain "pty1", if $1 is "david" print $2
 
 - `history -c; history -r`: Clear current bash history in memory.
 
