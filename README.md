@@ -220,6 +220,10 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - `stat`: Show file modification time, size, links, type and permission.
 
+  * Link count: Number of hard references to this inode.
+
+    - eg. `mkdir -p A/B` generates 3 count for A: `A/B/..` `A/.` and A
+
   * `file`: Show file type.
 
 - `xxd`: Hex dump (`-b` for binary dump)
