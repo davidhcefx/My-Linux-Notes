@@ -113,6 +113,10 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * The first '-' indicates file type: '-'=file, 'd'=dir, 'l'=link
 
+  * Inode: Record metadata (eg. size) and position of data block
+
+  * Directory: Is a file, which map filenames to their inode number
+
 - `pwd`: Print current directory path.
 
 - apt: `apt-get install` ...
