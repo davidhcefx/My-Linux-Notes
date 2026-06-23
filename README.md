@@ -318,7 +318,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * If a variable is already in Environ, the first method would also change it.
 
-- `trap "echo "I have been interrupted"; exit 0" SIGINT`
+- `trap 'echo "I have been interrupted"; exit 0' SIGINT`
 
   * Ignore signal: `""` ; Restore to default: `-`
 
