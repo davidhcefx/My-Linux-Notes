@@ -342,7 +342,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - `xargs`: Place input at arguments, eg. `ls *.txt | xargs stat`
 
-- `curl --fail -L (-o file) <url> (-X POST) (--header <str>) (--insecure)`
+- `curl --fail -L <url> [-o file] [-X POST] [--header <str>] [--insecure]`
     - -F <key>=<val>
     - --json <str>
-- `wget (-O file) <url>`
+- `wget <url> [-O file]`
