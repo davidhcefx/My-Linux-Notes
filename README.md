@@ -28,7 +28,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 7. `htop`: A colorful yet handy system resource monitor.
 
-8. Fast OS simulation: `qemu-system-x86_64 [iso file]`
+8. Fast OS simulation: `qemu-system-x86_64 <iso file>`
 
 9. List files in the recycle bin sorted by deletion time: `cd ~/.local/share/Trash/files; stat -c "%z - %n" * | sort -t'-'`.
 
@@ -54,9 +54,9 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 19. '-' is nothing special; it is just that programs such as `cat` view it as *stdin*.
 
-20. Disable alias temporarily: 1) `command [name]`, 2) `'[name]'`, 3) `\[name]`.
+20. Disable alias temporarily: 1) `command <name>`, 2) `'<name>'`, 3) `\<name>`.
 
-21. Analyze core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb [program] core`.
+21. Analyze core dumps: 1) `ulimit -c unlimited`, 2) After crash, `gdb <program> core`.
 
   * Can also be viewed with `readelf` or `objdump -s`, eg. *note0* section:
     ```
@@ -83,19 +83,19 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 ## Commands
 
-- Read the manual: `man [something](.SECTION_NUMBER)`
+- Read the manual: `man <something>(.SECTION_NUMBER)`
 
   * `-f`: search among page names.
 
-  * `-M [/usr/local/man]`: search under a different MANPATH.
+  * `-M /usr/local/man`: search under a different MANPATH.
 
-  * `info [somthing]` can also be helpful.
+  * `info <somthing>` can also be helpful.
 
 - Grep to filter: `ls | grep "sys"`
 
   * `^[a-z]`: Starting / `$`: Ending / `.` Any / `?` Optional
 
-- Print contents: `cat [textfile]`
+- Print contents: `cat <textfile>`
 
 - Rename through moving: `mv aaa abbb`
 
@@ -107,7 +107,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * `chmod 705 file` ---> (eg. '0'=---, '1'=--x, ..., '7'=rwx)
 
-- Change owner: `chown [user]:[group] file`
+- Change owner: `chown <user>:<group> file`
 
 - File info (`ls -l`): `-rw-rw-r-- 1  [user] [usergroup] [1024] [Sep 26 18:48] [file.name]`
 
@@ -123,7 +123,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * `apt-cache search` ...
 
-  * `apt-cache show [package name]` (detail info)
+  * `apt-cache show <package name>` (detail info)
 
   * `apt autoremove` (remove useless packages)
 
@@ -151,7 +151,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * `umount /dev/sda1`
 
-- `su [user] --shell /bin/bash`: Login as user with a shell.
+- `su <user> --shell /bin/bash`: Login as user with a shell.
 
   * `sudo -k`: Reset credential, require password to use sudo again.
 
@@ -177,23 +177,23 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - `ip link`: List network interfaces (NIC). Check if there is "UP" inside <>.
 
-  * `ip addr add [ip] broadcast + dev [interface]`: Add a static ip.
+  * `ip addr add <ip> broadcast + dev <interface>`: Add a static ip.
 
-  * `ip route add default via [gateway ip] dev [interface]`: Add a default router.
+  * `ip route add default via <gateway ip> dev <interface>`: Add a default router.
 
-  * `ifconfig eth0:0 [addr]`: Create a virtual interface.
+  * `ifconfig eth0:0 <addr>`: Create a virtual interface.
 
 - `iotop`:  View disk usage of every process.
 
 - `nmcli dev wifi`: List available Wifi APs.
 
-  * `nmcli dev wifi connect [iTaiwan] password [0123456789]`
+  * `nmcli dev wifi connect <iTaiwan> password <0123456789>`
 
 - `lshw`: List hardware info.
 
 - `lscpu`: Show cpu architecture info.
 
-- `date -d @[seconds since epoch]`: convert "seconds since epoch" to readable date.
+- `date -d @<seconds since epoch>`: convert "seconds since epoch" to readable date.
 
 - `head -n x ./myfile`: Print the first x line of file/stdin (if file not provided).
 
@@ -201,24 +201,24 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * `who`: Show current user.
 
-  * `pkill -u [username]`: Logout a user.
+  * `pkill -u <username>`: Logout a user.
 
-  * `adduser [name] --home /home/name --shell /bin/bash`
+  * `adduser <name> --home /home/name --shell /bin/bash`
 
 - Groups:
 
-  * `groups [user]`:  Show a user's groups
+  * `groups <user>`:  Show a user's groups
 
-  * `usermod -a -G [group] [user]`:  Add user to a group.
+  * `usermod -a -G <group> <user>`:  Add user to a group.
 
-  * `gpasswd -d [user] [group]`:  Remove user from a group.
+  * `gpasswd -d <user> <group>`:  Remove user from a group.
 
-- Mount eCryptfs: `sudo mount -t ecryptfs [.Private] [/mnt/point]` (`su` are needed sometimes)
+- Mount eCryptfs: `sudo mount -t ecryptfs .Private /mnt/point` (`su` are needed sometimes)
 
 - `wmctrl -k on`: Minimize all windows. (`off`=switch back)
 
-- `time [command]`: Record command's execution time.
-  * Get output:  `bash -c "time [command]" 2>&1`
+- `time <command>`: Record command's execution time.
+  * Get output:  `bash -c "time <command>" 2>&1`
 
 - `xdotool`: Can emulate key presses and mouse clicks.
 
@@ -313,8 +313,8 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - |   | Set | Unset | Show
   | --- | --- | --- | ---
-  | Shell variables   | `var=[value]`        | `unset var`     | `set`
-  | Environ variables | `export var=[value]` | `export -n var` | `printenv`
+  | Shell variables   | `var=<value>`        | `unset var`     | `set`
+  | Environ variables | `export var=<value>` | `export -n var` | `printenv`
 
   * If a variable is already in Environ, the first method would also change it.
 
@@ -328,9 +328,9 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
     - For Bash uses [Wait-and-Cooperative-Exit](https://www.cons.org/cracauer/sigint.html), which will depend on how its child has terminated.
 
-- `kill -SIGINT [process_id]`: Send signals to processes.
+- `kill -SIGINT <process_id>`: Send signals to processes.
 
-- `timeout [duration] [command]`: Run a command with a time limit.
+- `timeout <duration> <command>`: Run a command with a time limit.
 
 - `mktemp --tmpdir prefix_XXXXXX`: Create unique temp file with race-condition safety.
 
@@ -342,3 +342,7 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
 - `xargs`: Place input at arguments, eg. `ls *.txt | xargs stat`
 
+- `curl --fail -L (-o file) <url> (-X POST) (--header <str>) (--insecure)`
+    - -F <key>=<val>
+    - --json <str>
+- `wget (-O file) <url>`
