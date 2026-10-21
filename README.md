@@ -95,6 +95,12 @@ My learning notes while exploring Linux, Ubuntu and Xubuntu.
 
   * `^[a-z]`: Starting / `$`: Ending / `.` Any / `?` Optional
 
+  *  `-A <num> -B <num>`
+
+  * `--exclude-dir <dir>`
+
+- rg: faster searcher, skip hidden and ignored files by default.
+
 - Print contents: `cat <textfile>`
 
 - Rename through moving: `mv aaa abbb`
